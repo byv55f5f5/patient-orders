@@ -1,8 +1,10 @@
 # Patient Orders
 
-## How to run project
+## How to run front-end web
 
 ```sh
+cd ./web
+
 npm start
 ```
 
