@@ -1,6 +1,6 @@
 # Patient Orders
 
-## 1. run back-end server
+## 1. Run Back-End Server
 
 ```sh
 cd ./server
@@ -8,7 +8,7 @@ cd ./server
 npm start
 ```
 
-## 2. How to run front-end web
+## 2. Run Front-End Web
 
 ```sh
 cd ./web
