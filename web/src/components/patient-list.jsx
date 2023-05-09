@@ -1,39 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import List from '@mui/material/List';
 
 import Patient from 'components/patient';
 
-const patients = [
-  {
-    Id: '1',
-    Name: 'Patient 1',
-    OrderId: '1',
-  },
-  {
-    Id: '2',
-    Name: 'Patient 2',
-    OrderId: '2',
-  },
-  {
-    Id: '3',
-    Name: 'Patient 3',
-    OrderId: '3',
-  },
-  {
-    Id: '4',
-    Name: 'Patient 4',
-    OrderId: '4',
-  },
-  {
-    Id: '5',
-    Name: 'Patient 5',
-    OrderId: '5',
-  },
-];
-
 export default function PatientList() {
   const [viewingPatient, setViewingPatient] = useState('');
+  const [patients, setPatients] = useState([]);
 
   const handlePatientClick = useCallback((patient) => {
     setViewingPatient(patient.Id);
@@ -41,6 +14,12 @@ export default function PatientList() {
 
   const handleOrderClose = useCallback(() => {
     setViewingPatient('');
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/patients')
+      .then((response) => response.json())
+      .then((data) => setPatients(data));
   }, []);
 
   return (
